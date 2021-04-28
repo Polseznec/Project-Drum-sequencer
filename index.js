@@ -59,46 +59,26 @@ function parseSequencerSteps() {
   document.querySelectorAll(".step").forEach((step) => {
     if (step.classList.contains("selected")) {
       const { sample } = findInstrument(step.parentElement);
-      if (sample){ 
+      if (sample) {
         // sample.currenTime = 0; // ??
-        sample.play()};
+        sample.play();
+      }
     }
   });
 }
 
-// Display blink beat 
-let beatOne = document.getElementById("beatOne");
-let beatTwo = document.getElementById("beatTwo");
-let beatThree = document.getElementById("beatThree");
-let beatFour = document.getElementById("beatFour");
-let beatFive = document.getElementById("beatFive");
-let beatSix = document.getElementById("beatSix");
-let beatSeven = document.getElementById("beatSeven");
-let beatEight = document.getElementById("beatEight");
-let beatNine = document.getElementById("beatNine");
-let beatTen = document.getElementById("beatTen");
-let beatEleven = document.getElementById("beatEleven");
-let beatTwelve = document.getElementById("beatTwelve");
-let beatThirteen = document.getElementById("beatThirteen");
-let beatFourteen = document.getElementById("beatFourteen");
-let beatFifteen = document.getElementById("beatFifteen");
-let beatSixteen = document.getElementById("beatSixteen");
+// Display blink beat
+let beatCells = document.querySelectorAll("thead .grille-top");
 
-console.log(currentBeat);
+//console.log(currentBeat);
 
-function displayBeats(){
-  if ( currentBeat === 1 ){
-    beatOne.classList.toggle("blinkBeat")
-    setTimeout()
-  }
-  if ( currentBeat === 2 ){
-    beatTwo.classList.toggle("blinkBeat")
-    setTimeout()
-  }
+function displayBeats() {
+  beatCells.forEach((cell, i) => {
+    i + 1 === currentBeat
+      ? cell.classList.add("blinkBeat")
+      : cell.classList.remove("blinkBeat");
+  });
 }
-setTimeout(function(pad){
-  pad.classList.remove("blinkBeat");
-}, 300)
 
 console.log(beatOne.classList);
 //Click/bpm Generator-------------------------------
@@ -106,6 +86,7 @@ console.log(beatOne.classList);
 function launchBpmClock() {
   intervalId = setInterval(() => {
     parseSequencerSteps();
+    displayBeats();
     console.log(currentBeat);
     currentBeat++;
     if (currentBeat === 17) {
