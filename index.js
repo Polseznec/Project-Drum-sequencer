@@ -1,13 +1,16 @@
+// call =  Audio Api
 const audioContext = new AudioContext();
-// call =  Auio Api
+
 //var ctxAudio = new (window.AudioContext || window.webkitAudioContext)();
 let bpmModule = document.getElementById("bpmModule");
 let displayNbrBpm = document.getElementById("displayBpm");
 let userBpm = document.querySelector(".userBpm");
-//button start/stop
 let playtBtn = document.getElementById("playButton");
 //declare Samples
 let kickSample = new Audio("Samples/kick909.mp3");
+let snareSample = new Audio("Samples/snare909.mp3");
+let openhihatSample = new Audio("Samples/ohihat909.mp3");
+let closehihatSample = new Audio("Samples/chithat909.mp3");
 //kickSample.play();
 
 //Preview sound
@@ -26,46 +29,87 @@ let intervalId = 0;
 //let displayBeat = currentBeat % 4; //rong
 
 //find sounds function
-function findSoundsToPlay(number) {
-  let soundsToPlay = document.querySelectorAll(".grille-kick");
-  //console.log(soundsToPlay) // attribute beat
-  soundsToPlay.forEach((sound) => {
-    // console.log(sound);
-    //kickSample.play();
-    console.log(sound.parentElement);
-    if (sound.classList.contains("selected")) {
-      // si le user a choisi ce son précis
-      switch (sound) {
-        case (sound.parentElement.contains = ".grille-kick"): // ?????? don't find the string:
-          console.log(sound.innerHTML);
-          kickSample.play();
-          break;
-        case "snareSound":
-          break;
-        case "oHihatSound":
-          break;
-        case "cHihatSound":
-          break;
-        default:
-          console.log("--No Sound Finded--");
-          break;
-      }
+
+const instruments = {
+  kick: {
+    selector: "grille-kick",
+    sample: kickSample,
+  },
+  snare: {
+    selector: "grille-snare",
+    sample: snareSample,
+  },
+  openhihat: {
+    selector: "grille-OpenHihat",
+    sample: openhihatSample,
+  },
+  closehihat: {
+    selector: "grille-CloseHihat",
+    sample: closehihatSample,
+  },
+};
+
+function findInstrument(row) {
+  return Object.values(instruments).find((instrument) =>
+    row.classList.contains(instrument.selector)
+  );
+}
+
+function parseSequencerSteps() {
+  document.querySelectorAll(".step").forEach((step) => {
+    if (step.classList.contains("selected")) {
+      const { sample } = findInstrument(step.parentElement);
+      if (sample){ 
+        // sample.currenTime = 0; // ??
+        sample.play()};
     }
   });
 }
 
+// Display blink beat 
+let beatOne = document.getElementById("beatOne");
+let beatTwo = document.getElementById("beatTwo");
+let beatThree = document.getElementById("beatThree");
+let beatFour = document.getElementById("beatFour");
+let beatFive = document.getElementById("beatFive");
+let beatSix = document.getElementById("beatSix");
+let beatSeven = document.getElementById("beatSeven");
+let beatEight = document.getElementById("beatEight");
+let beatNine = document.getElementById("beatNine");
+let beatTen = document.getElementById("beatTen");
+let beatEleven = document.getElementById("beatEleven");
+let beatTwelve = document.getElementById("beatTwelve");
+let beatThirteen = document.getElementById("beatThirteen");
+let beatFourteen = document.getElementById("beatFourteen");
+let beatFifteen = document.getElementById("beatFifteen");
+let beatSixteen = document.getElementById("beatSixteen");
+
+console.log(currentBeat);
+
+function displayBeats(){
+  if ( currentBeat === 1 ){
+    beatOne.classList.toggle("blinkBeat")
+    setTimeout()
+  }
+  if ( currentBeat === 2 ){
+    beatTwo.classList.toggle("blinkBeat")
+    setTimeout()
+  }
+}
+setTimeout(function(pad){
+  pad.classList.remove("blinkBeat");
+}, 300)
+
+console.log(beatOne.classList);
 //Click/bpm Generator-------------------------------
 
 function launchBpmClock() {
   intervalId = setInterval(() => {
+    parseSequencerSteps();
     console.log(currentBeat);
-    //kickSample.play();
-    findSoundsToPlay(currentBeat);
     currentBeat++;
     if (currentBeat === 17) {
       currentBeat = 1;
-    } else {
-      ("ERROR");
     }
   }, 15000 / currentBpm);
 }
@@ -73,6 +117,8 @@ function launchBpmClock() {
 function stopBpmClock() {
   clearInterval(intervalId);
 }
+
+window.onbeforeunload = stopBpmClock;
 
 //Display the Bpm-----------------------------------
 function addBpm() {
@@ -128,7 +174,7 @@ previewCHH.onclick = () => previewCHH.classList.toggle("Cpreview");
 
 // ------------------Sounds from Api--------------------
 
-console.log(audioContext.sampleRate);
+//console.log(audioContext.sampleRate);
 
 //teste WhiteNoise mono
 const buffer = audioContext.createBuffer(
@@ -149,7 +195,7 @@ primaryGainControl.connect(audioContext.destination);
 const button = document.createElement("button");
 button.innerHTML = "White Noise";
 
-//whiteNoise Generator 
+//whiteNoise Generator
 button.addEventListener("click", () => {
   const whiteNoiseSource = audioContext.createBufferSource();
   whiteNoiseSource.buffer = buffer;
@@ -160,41 +206,46 @@ button.addEventListener("click", () => {
 document.body.appendChild(button);
 
 //Kick Sound
-const kickButton = document.createElement("button")
+const kickButton = document.createElement("button");
 kickButton.innerHTML = "Kick";
-kickButton.addEventListener("click", ()=> {
-    const kickOscillator = audioContext.createOscillator()
-//pitching-down process for kick
-    kickOscillator.frequency.setValueAtTime(150,0) //ocs Frequecy
-    kickOscillator.frequency.exponentialRampToValueAtTime(0.001, audioContext.currentTime + 1.5);
-    kickOscillator.connect(primaryGainControl)
-    kickOscillator.start(); 
-    kickOscillator.stop(audioContext.currentTime = 0.5)
-})
+kickButton.addEventListener("click", () => {
+  const kickOscillator = audioContext.createOscillator();
+  //pitching-down process for kick
+  kickOscillator.frequency.setValueAtTime(150, 0); //ocs Frequecy
+  kickOscillator.frequency.exponentialRampToValueAtTime(
+    0.001,
+    audioContext.currentTime + 1.5
+  );
+  kickOscillator.connect(primaryGainControl);
+  kickOscillator.start();
+  kickOscillator.stop((audioContext.currentTime = 0.5));
+});
 document.body.appendChild(kickButton);
 
 //fadeOut for Kick
 const kickGain = audioContext.createGain();
-  kickGain.gain.setValueAtTime(1, 0);
-  kickGain.gain.exponentialRampToValueAtTime(0.001, audioContext.currentTime + 0.5 );
-  // kickOscillator.connet(kickGain);
-  // kickGain.connet(primaryGainControl);
-
+kickGain.gain.setValueAtTime(1, 0);
+kickGain.gain.exponentialRampToValueAtTime(
+  0.001,
+  audioContext.currentTime + 0.5
+);
+// kickOscillator.connet(kickGain);
+// kickGain.connet(primaryGainControl);
 
 //Snare Sound---------------------------------------------
 const snareFilter = audioContext.createBiquadFilter();
 snareFilter.type = "highpass";
 snareFilter.frequency.value = 1500;
-snareFilter.connect(primaryGainControl); 
-const snareButton = document.createElement("button")
-snareButton.innerHTML = 'Snare'
+snareFilter.connect(primaryGainControl);
+const snareButton = document.createElement("button");
+snareButton.innerHTML = "Snare";
 snareButton.addEventListener("click", () => {
   const whiteNoiseSource = audioContext.createBufferSource();
   whiteNoiseSource.buffer = buffer;
   whiteNoiseSource.connect(snareFilter);
   // primaryGainControl.connect(audioContext.destination);
   whiteNoiseSource.start();
-})
+});
 document.body.appendChild(snareButton);
 
 //Open Hihat Sound
