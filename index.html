@@ -10,27 +10,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Drums Sequencer</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <script type="module" src="/index.js"></script>
     <!-- <script type="module" src="Audio/sound.js"></script> -->
 </head>
 
 <body>
     <header>
-    </header>
-    <section></section>
-
-    <!--Bpm display & play/stop button-->
-    <section>
-        <div id="bpmModule">
-            <div id="controlButtons">
-                <button id="playButton">Play</button>
+        <div class="left-header">
+            <i class="fab fa-cuttlefish"></i>
+            <h1> quence</h1>
+            <div>
+                <a class="about" href="">About</a>
             </div>
-            <input class="userBpm" type="range" name="bpmSelector" min="70" max="180">
-            <span>BPM : </span><span id="displayBpm">000</span>
         </div>
-    </section>
-    <section>
-        <h1>Sequencer</h1>
+
+    </header>
+
+    <section class="sequencer">
+        <div class="control-zone">
+            <div id="controlButtons">
+                <button id="playButton"><i class="fas fa-play"></i></button>
+            </div>
+            <div id="bpmModule">
+                <input class="userBpm" type="range" name="bpmSelector" min="70" max="180">
+                <span>BPM : </span><span id="displayBpm">000</span>
+            </div>
+        </div>
         <span></span>
         <table class="table">
             <thead>
@@ -55,83 +61,91 @@
             <tbody>
                 <tr class="grille-kick">
                     <td>Kick</td>
-                    <th class="step">1</th>
-                    <th class="step">2</th>
-                    <th class="step">3</th>
-                    <th class="step">4</th>
-                    <th class="step">1</th>
-                    <th class="step">2</th>
-                    <th class="step">3</th>
-                    <th class="step">4</th>
-                    <th class="step">1</th>
-                    <th class="step">2</th>
-                    <th class="step">3</th>
-                    <th class="step">4</th>
-                    <th class="step">1</th>
-                    <th class="step">2</th>
-                    <th class="step">3</th>
-                    <th class="step">4</th>
+                    <th class="step"></th>
+                    <th class="step"></th>
+                    <th class="step"></th>
+                    <th class="step"></th>
+                    <th class="step"></th>
+                    <th class="step"></th>
+                    <th class="step"></th>
+                    <th class="step"></th>
+                    <th class="step"></th>
+                    <th class="step"></th>
+                    <th class="step"></th>
+                    <th class="step"></th>
+                    <th class="step"></th>
+                    <th class="step"></th>
+                    <th class="step"></th>
+                    <th class="step"></th>
                 </tr>
                 <tr class="grille-snare">
                     <td>Snare</td>
-                    <th class="step">1</th>
-                    <th class="step">2</th>
-                    <th class="step">3</th>
-                    <th class="step">4</th>
-                    <th class="step">1</th>
-                    <th class="step">2</th>
-                    <th class="step">3</th>
-                    <th class="step">4</th>
-                    <th class="step">1</th>
-                    <th class="step">2</th>
-                    <th class="step">3</th>
-                    <th class="step">4</th>
-                    <th class="step">1</th>
-                    <th class="step">2</th>
-                    <th class="step">3</th>
-                    <th class="step">4</th>
+                    <th class="step"></th>
+                    <th class="step"></th>
+                    <th class="step"></th>
+                    <th class="step"></th>
+                    <th class="step"></th>
+                    <th class="step"></th>
+                    <th class="step"></th>
+                    <th class="step"></th>
+                    <th class="step"></th>
+                    <th class="step"></th>
+                    <th class="step"></th>
+                    <th class="step"></th>
+                    <th class="step"></th>
+                    <th class="step"></th>
+                    <th class="step"></th>
+                    <th class="step"></th>
                 </tr>
                 <tr class="grille-OpenHihat">
                     <td>OpenHihat</td>
-                    <th class="step">2</th>
-                    <th class="step">1</th>
-                    <th class="step">3</th>
-                    <th class="step">4</th>
-                    <th class="step">1</th>
-                    <th class="step">2</th>
-                    <th class="step">3</th>
-                    <th class="step">4</th>
-                    <th class="step">1</th>
-                    <th class="step">2</th>
-                    <th class="step">3</th>
-                    <th class="step">4</th>
-                    <th class="step">1</th>
-                    <th class="step">2</th>
-                    <th class="step">3</th>
-                    <th class="step">4</th>
+                    <th class="step"></th>
+                    <th class="step"></th>
+                    <th class="step"></th>
+                    <th class="step"></th>
+                    <th class="step"></th>
+                    <th class="step"></th>
+                    <th class="step"></th>
+                    <th class="step"></th>
+                    <th class="step"></th>
+                    <th class="step"></th>
+                    <th class="step"></th>
+                    <th class="step"></th>
+                    <th class="step"></th>
+                    <th class="step"></th>
+                    <th class="step"></th>
+                    <th class="step"></th>
                 </tr>
                 <tr class="grille-CloseHihat">
                     <td>CloseHihat</td>
-                    <th class="step">1</th>
-                    <th class="step">2</th>
-                    <th class="step">3</th>
-                    <th class="step">4</th>
-                    <th class="step">1</th>
-                    <th class="step">2</th>
-                    <th class="step">3</th>
-                    <th class="step">4</th>
-                    <th class="step">1</th>
-                    <th class="step">2</th>
-                    <th class="step">3</th>
-                    <th class="step">4</th>
-                    <th class="step">1</th>
-                    <th class="step">2</th>
-                    <th class="step">3</th>
-                    <th class="step">4</th>
+                    <th class="step"></th>
+                    <th class="step"></th>
+                    <th class="step"></th>
+                    <th class="step"></th>
+                    <th class="step"></th>
+                    <th class="step"></th>
+                    <th class="step"></th>
+                    <th class="step"></th>
+                    <th class="step"></th>
+                    <th class="step"></th>
+                    <th class="step"></th>
+                    <th class="step"></th>
+                    <th class="step"></th>
+                    <th class="step"></th>
+                    <th class="step"></th>
+                    <th class="step"></th>
                 </tr>
             </tbody>
         </table>
     </section>
+    <footer>
+        <div>
+            <ul>
+                <li>2021</li>
+                <!-- <li>2</li> -->
+            </ul>
+        </div>
+    </footer>
 </body>
 
 </html>

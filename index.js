@@ -113,14 +113,32 @@ function resetBpmClock() {
 }
 // OnPlay Button------------------------------
 function resetPlayBtn() {
-  playtBtn.textContent = "Play";
+  // playtBtn.textContent = "Play";
   playtBtn.className = "playButton";
+  playtBtn.firstChild.className = "fas fa-stop";
 }
 //OffPlay Button------------------------------
 function resetPauseBtn() {
-  playtBtn.textContent = "Pause";
+  // playtBtn.textContent = "Pause";
   playtBtn.className = "stopButton";
+  playtBtn.firstChild.className = "fas fa-play";
 }
+/*
+function resetPlayBtn() {
+  // playtBtn.textContent = "Play";
+  playtBtn.firstChild.className = "playButton";
+  playtBtn.firstChild.className = "fas fa-stop";
+  $('playtBtn td:first').removeClass("fas fa-play");
+}
+//OffPlay Button------------------------------
+function resetPauseBtn() {
+  // playtBtn.textContent = "Pause";
+  playtBtn.firstChild.className = "playButton";
+  playtBtn.firstChild.className = "fas fa-play";
+  $('playtBtn td:first').removeClass("fas fa-stop");
+
+}
+*/
 
 //Play.pause Commende Button------------------------------
 playtBtn.addEventListener("click", () => {
@@ -184,7 +202,7 @@ button.addEventListener("click", () => {
   // primaryGainControl.connect(audioContext.destination);
   whiteNoiseSource.start();
 });
-document.body.appendChild(button);
+// document.body.appendChild(button);
 
 //Kick Sound
 const kickButton = document.createElement("button");
@@ -201,7 +219,7 @@ kickButton.addEventListener("click", () => {
   kickOscillator.start();
   kickOscillator.stop((audioContext.currentTime = 0.5));
 });
-document.body.appendChild(kickButton);
+// document.body.appendChild(kickButton);
 
 //fadeOut for Kick
 const kickGain = audioContext.createGain();
@@ -227,7 +245,7 @@ snareButton.addEventListener("click", () => {
   // primaryGainControl.connect(audioContext.destination);
   whiteNoiseSource.start();
 });
-document.body.appendChild(snareButton);
+// document.body.appendChild(snareButton);
 
 //Open Hihat Sound
 

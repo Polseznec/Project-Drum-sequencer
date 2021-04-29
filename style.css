@@ -3,22 +3,97 @@
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
-    color: silver;
+    color: rgb(255, 97, 70);
+    
 }
 body{
     background: #282828;
 }
-h1 {
-    text-align: center;
-    font-size: 2em;
-    margin: 30px 0;
+
+header{
+    display: flex;
+    background-color: white;
+    margin-top: none;
+    height: 80px;
+    border-bottom: solid 10px tomato;
+    
+    
+}
+.fas, .fab{
+    color: rgb(255, 97, 70);
+}
+footer{
+    background-color: white;
+    margin-top: 10px;
+
+}
+header{
+    margin-bottom: 0;
+    justify-content: space-between;
+  
+}
+a{
+    text-decoration: none;
+    outline: none;
+    font-size: 2em; 
+}
+.fa-play, .fa-stop{
+    font-size: 3em;
+}
+.left-header{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.fa-cuttlefish{
+    margin-left: 10%;
+    font-size: 3em;
+}
+.about{
+    float: right;
+    justify-content: flex-end;
+    align-items: center;
+}
+.control-zone{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.sequencer{
+    box-sizing: border-box 1px;
+    background-color: white;
+    border: solid 10px tomato;
+    margin: 5px;
+}
+button{
+    border: none;
+    background: none
+}
+#controlButtons{
+    /* margin-left: 10%;
+    margin-top: 5%; */
+    font-size: 40px;
+    padding-right: 10px;
+    padding: 10px;
+    ;
 }
 .table{
     width: 99%;
-    border: 1px;
+    margin: 0 20px;
+    /* border: 1px;
     margin: 5px;
-    padding: 5px;
+    padding: 5px; */
 }
+input[type=range] {
+    -webkit-appearance: none;
+    background: tomato;   
+}
+input[type=range]::-ms-track {
+    width: 100%;
+    cursor: pointer;
+    color: white;
+}
+  
 .table td, table th{
     padding: 12px 15px;
     text-align: center;
@@ -101,8 +176,21 @@ h1 {
     margin: 3px;
     align-items: center;
     justify-content: center;
-    background: radial-gradient(#fd8975, #dd1f1fd8);
+    background: radial-gradient(#f5a4966b, #dd1f1fd8);
     border-radius: 3px;
+}
+ul{
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    
+}
+footer {
+    position: absolute; 
+    width: 100%;
+    height: 10%;
+    bottom: 0;
+    border-top: solid 10px tomato;
 }
 
 
