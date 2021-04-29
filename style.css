@@ -35,24 +35,31 @@ header{
 a{
     text-decoration: none;
     outline: none;
-    font-size: 2em; 
+    font-size: 2em;
+    margin-left: 0%; 
+    justify-content: flex-end;
+    
 }
 .fa-play, .fa-stop{
     font-size: 3em;
 }
 .left-header{
     display: flex;
-    justify-content: flex-start;
+    /* justify-content: flex-start; */
     align-items: center;
 }
 .fa-cuttlefish{
-    margin-left: 10%;
+    margin-left: 35%;
     font-size: 3em;
 }
 .about{
     float: right;
     justify-content: flex-end;
     align-items: center;
+    margin-top: 20%;
+    margin-right: 50%;
+    font-weight: bolder;
+    
 }
 .control-zone{
     display: flex;
@@ -63,7 +70,8 @@ a{
     box-sizing: border-box 1px;
     background-color: white;
     border: solid 10px tomato;
-    margin: 5px;
+
+    margin: 70px 3%;
 }
 button{
     border: none;
@@ -94,7 +102,7 @@ input[type=range]::-ms-track {
     color: white;
 }
   
-.table td, table th{
+.table td, table, th{
     padding: 12px 15px;
     text-align: center;
     /* min-height: 500px;
@@ -183,6 +191,8 @@ ul{
     display: flex;
     justify-content: center;
     list-style: none;
+    margin: 13px;
+    font-size: 2em ;
     
 }
 footer {
@@ -191,6 +201,7 @@ footer {
     height: 10%;
     bottom: 0;
     border-top: solid 10px tomato;
+
 }
 
 

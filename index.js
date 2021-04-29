@@ -136,7 +136,6 @@ function resetPauseBtn() {
   playtBtn.firstChild.className = "playButton";
   playtBtn.firstChild.className = "fas fa-play";
   $('playtBtn td:first').removeClass("fas fa-stop");
-
 }
 */
 
@@ -252,7 +251,6 @@ snareButton.addEventListener("click", () => {
 //Close Hihat Sound
 
 /*  
-
 List of Ideas
   
 I need (Mandatory): 
@@ -270,7 +268,6 @@ I need (Mandatory):
     * 
     
 --Exemple--
-
 ------------------------------------------------------------------------------------------
                                                 
                      1beat (One Click)             
@@ -290,7 +287,6 @@ O-Hat =>    |     | |     | |     | |     |     | =>
 Etc.. =>                                        |
                                                 |
 ------------------------------------------------------------------------------------------
-
 -- I wish (Bonus): --
     * 
     * multi  samples bank by style (hxc, techno, house etc) load by buttons.... (obviously Array&object)
@@ -314,5 +310,4 @@ questions of th day :
     * js files organisation
 -- tuesday's Goals --
     * make the sequencer 
-
 */
