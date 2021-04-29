@@ -1,6 +1,3 @@
-<!----------Drums-sequencer---------->
-<!----HTML--------------------------->
-<!----------------------------Pol----->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,7 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Drums Sequencer</title>
+    <title>Cat Synth</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.17/Tone.js"></script>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <script type="module" src="/index.js"></script>
@@ -19,15 +17,32 @@
     <header>
         <div class="left-header">
             <i class="fab fa-cuttlefish"></i>
-            <h1> quence</h1>
-            <div>
-                <a class="about" href="">About</a>
-            </div>
+            <h1>at Synth</h1>
         </div>
-
+        <i class="fas fa-paw"></i>
+        <div>
+            <a class="about" href="">.About</a>
+        </div>
     </header>
 
-    <section class="sequencer">
+    <section>
+        <div class="synth">
+            <div id="toucheC" class="touche blanche"></div>
+            <div id="toucheCcharp" class="touche noir"></div>
+            <div id="toucheD" class="touche blanche"></div>
+            <div id="toucheDsharp" class="touche noir"></div>
+            <div id="toucheE" class="touche blanche"></div>
+            <div id="toucheF" class="touche blanche"></div>
+            <div id="toucheFsharp" class="touche noir"></div>
+            <div id="toucheG" class="touche blanche"></div>
+            <div id="toucheGsharp" class="touche noir"></div>
+            <div id="toucheA" class="touche blanche"></div>
+            <div id="toucheAsharp" class="touche noir"></div>
+            <div id="toucheB" class="touche blanche"></div>
+            <div id="toucheC2" class="touche blanche"></div>
+        </div>
+    </section>
+    <!-- <section class="sequencer">
         <div class="control-zone">
             <div id="controlButtons">
                 <button id="playButton"><i class="fas fa-play"></i></button>
@@ -38,105 +53,10 @@
             </div>
         </div>
         <span></span>
-        <table class="table">
-            <thead>
-                <th></th>
-                <th id="beatOne" class="grille-top firstKickcolor">1</th>
-                <th id="beatTwo" class="grille-top">2</th>
-                <th id="beatThree" class="grille-top">3</th>
-                <th id="beatFour" class="grille-top">4</th>
-                <th id="beatFive" class="grille-top firstKickcolor">5</th>
-                <th id="beatSix" class="grille-top">6</th>
-                <th id="beatSeven" class="grille-top">7</th>
-                <th id="beatEight" class="grille-top">8</th>
-                <th id="beatNine" class="grille-top firstKickcolor">9</th>
-                <th id="beatTen" class="grille-top">10</th>
-                <th id="beatEleven" class="grille-top">11</th>
-                <th id="beatTwelve" class="grille-top">12</th>
-                <th id="beatThirteen" class="grille-top firstKickcolor">13</th>
-                <th id="beatFourteen" class="grille-top">14</th>
-                <th id="beatFifteen" class="grille-top">15</th>
-                <th id="beatSixteen" class="grille-top">16</th>
-            </thead>
-            <tbody>
-                <tr class="grille-kick">
-                    <td>Kick</td>
-                    <th class="step"></th>
-                    <th class="step"></th>
-                    <th class="step"></th>
-                    <th class="step"></th>
-                    <th class="step"></th>
-                    <th class="step"></th>
-                    <th class="step"></th>
-                    <th class="step"></th>
-                    <th class="step"></th>
-                    <th class="step"></th>
-                    <th class="step"></th>
-                    <th class="step"></th>
-                    <th class="step"></th>
-                    <th class="step"></th>
-                    <th class="step"></th>
-                    <th class="step"></th>
-                </tr>
-                <tr class="grille-snare">
-                    <td>Snare</td>
-                    <th class="step"></th>
-                    <th class="step"></th>
-                    <th class="step"></th>
-                    <th class="step"></th>
-                    <th class="step"></th>
-                    <th class="step"></th>
-                    <th class="step"></th>
-                    <th class="step"></th>
-                    <th class="step"></th>
-                    <th class="step"></th>
-                    <th class="step"></th>
-                    <th class="step"></th>
-                    <th class="step"></th>
-                    <th class="step"></th>
-                    <th class="step"></th>
-                    <th class="step"></th>
-                </tr>
-                <tr class="grille-OpenHihat">
-                    <td>OpenHihat</td>
-                    <th class="step"></th>
-                    <th class="step"></th>
-                    <th class="step"></th>
-                    <th class="step"></th>
-                    <th class="step"></th>
-                    <th class="step"></th>
-                    <th class="step"></th>
-                    <th class="step"></th>
-                    <th class="step"></th>
-                    <th class="step"></th>
-                    <th class="step"></th>
-                    <th class="step"></th>
-                    <th class="step"></th>
-                    <th class="step"></th>
-                    <th class="step"></th>
-                    <th class="step"></th>
-                </tr>
-                <tr class="grille-CloseHihat">
-                    <td>CloseHihat</td>
-                    <th class="step"></th>
-                    <th class="step"></th>
-                    <th class="step"></th>
-                    <th class="step"></th>
-                    <th class="step"></th>
-                    <th class="step"></th>
-                    <th class="step"></th>
-                    <th class="step"></th>
-                    <th class="step"></th>
-                    <th class="step"></th>
-                    <th class="step"></th>
-                    <th class="step"></th>
-                    <th class="step"></th>
-                    <th class="step"></th>
-                    <th class="step"></th>
-                    <th class="step"></th>
-                </tr>
-            </tbody>
-        </table>
+       
+    </section> -->
+    <section>
+        <img src="" alt="">
     </section>
     <footer>
         <div>
